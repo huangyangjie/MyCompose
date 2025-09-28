@@ -12,22 +12,22 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavHostController
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavHostController
 import com.example.mycompose.component.TopView
 import com.example.mycompose.navigation.Routes
 import com.example.mycompose.viewmodels.SharedViewModel
+import kotlinx.coroutines.launch
 
 @Composable
 fun ProfileScreen(
-    navController: NavHostController,
-    query: String? = null,
-    page: String? = null
+    navController: NavHostController, query: String? = null, page: String? = null
 ) {
     val viewModel: SharedViewModel = hiltViewModel()
-
+    val scope = rememberCoroutineScope()
 
     Scaffold(topBar = {
         TopView("个人中心") {
@@ -51,24 +51,26 @@ fun ProfileScreen(
             }
             Button(
                 onClick = {
-                   val age= navController.previousBackStackEntry?.savedStateHandle?.get< String>("age")
+                    val age = navController.previousBackStackEntry?.savedStateHandle?.get<String>("age")
                     Log.e("previousBackStackEntry:", "ProfileScreen age:$age")
-                    navController.previousBackStackEntry?.savedStateHandle?.set("new_age","180")
+                    navController.previousBackStackEntry?.savedStateHandle?.set("new_age", "180")
                     navController.popBackStack()
                 }) {
                 Text("返回上一个页面")
             }
             Button(
                 onClick = {
-                    navController.popBackStack(Routes.Home.path,inclusive = false)
+                    navController.popBackStack(Routes.Home.path, inclusive = false)
                 }) {
                 Text("返回首页")
             }
             Button(
                 onClick = {
-                    viewModel.userModule.num++
+                    scope.launch {
+                        viewModel.userModule.add()
+                    }
                 }) {
-                Text("userModule ${viewModel.userModule.num}")
+                Text("userModule ${viewModel.userModule.getNumData()}")
             }
         }
     }

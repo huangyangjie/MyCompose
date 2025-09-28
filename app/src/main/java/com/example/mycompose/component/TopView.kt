@@ -13,11 +13,13 @@ import androidx.compose.runtime.Composable
 @Composable
 fun TopView(title: String,onBack: () -> Unit) {
     CenterAlignedTopAppBar(title={Text(text = title)}, navigationIcon = {
-        IconButton(onClick = onBack) {
-            Icon(
-                imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                contentDescription = "back",
-            )
+        if("首页" != title){
+            IconButton(onClick = onBack) {
+                Icon(
+                    imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                    contentDescription = "back",
+                )
+            }
         }
     })
 }

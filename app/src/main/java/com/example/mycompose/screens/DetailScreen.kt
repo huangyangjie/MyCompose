@@ -17,6 +17,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -26,6 +27,7 @@ import com.example.mycompose.component.CustomView
 import com.example.mycompose.component.TopView
 import com.example.mycompose.navigation.Routes
 import com.example.mycompose.viewmodels.SharedViewModel
+import kotlinx.coroutines.launch
 
 
 @SuppressLint("UnrememberedMutableState")
@@ -34,12 +36,11 @@ fun DetailScreen(
     navController: NavHostController
 ) {
     var show by mutableStateOf(false)
+    val scope = rememberCoroutineScope()
     val viewModel: SharedViewModel = hiltViewModel()
     val user = requireNotNull(navController.currentBackStackEntry?.arguments?.getString("user"))
     val age = requireNotNull(navController.currentBackStackEntry?.arguments?.getString("age"))
     val birthday = requireNotNull(navController.currentBackStackEntry?.arguments?.getString("birthday"))
-
-
 
     LaunchedEffect(user, age, birthday) {
         Log.e("ProfileScreen", "LaunchedEffect Received params: user=$user, age=$age, birthday=$birthday")
@@ -57,7 +58,6 @@ fun DetailScreen(
     SideEffect {
         Log.e("SideEffect", "common DetailScreen----------------")
     }
-
 
     Scaffold(
         topBar = {
@@ -97,9 +97,15 @@ fun DetailScreen(
             }
             Button(
                 onClick = {
-                    viewModel.userModule.num++
+                    scope.launch { viewModel.userModule.add() }
                 }) {
-                Text("userModule ${viewModel.userModule.num}")
+                Text("userModule ${viewModel.userModule.getNumData()} add")
+            }
+            Button(
+                onClick = {
+                    scope.launch { viewModel.userModule.add() }
+                }) {
+                Text("num sub")
             }
             Button(
                 onClick = {

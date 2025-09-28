@@ -103,7 +103,7 @@ object HttpsUtils {
     }
 
     private fun prepareTrustManager(vararg certificates: InputStream?): Array<TrustManager?>? {
-        if (certificates == null || certificates.size <= 0) return null
+        if (certificates.isEmpty()) return null
         try {
             val certificateFactory = CertificateFactory.getInstance("X.509")
             // 创建一个默认类型的KeyStore，存储我们信任的证书

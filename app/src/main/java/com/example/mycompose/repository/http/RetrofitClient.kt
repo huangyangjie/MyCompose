@@ -19,8 +19,9 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.File
 import java.util.concurrent.TimeUnit
+import javax.inject.Singleton
 
-open class RetrofitClient {
+open class RetrofitClient  {
     companion object {
         //超时时间
         private const val DEFAULT_TIMEOUT: Long = 28
