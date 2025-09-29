@@ -33,6 +33,8 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavHostController
 import com.example.mycompose.component.TopView
+import com.example.mycompose.component.MyOwnColumnView
+import com.example.mycompose.component.StaggeredGrid
 import com.example.mycompose.navigation.Routes
 import com.example.mycompose.viewmodels.SharedViewModel
 import kotlinx.coroutines.launch
@@ -96,6 +98,8 @@ fun HomeScreen(navController: NavHostController, viewModel: SharedViewModel = hi
                 Button(onClick = { viewModel.getBanner() }) {
                     Text("获取banner")
                 }
+//                MyOwnColumnView(modifier = Modifier.padding(20.dp))
+                StaggeredGrid()
             }
             LazyColumn(modifier = Modifier.fillMaxWidth(0.5F)) {
                 items(bannerList.size, key = { index ->
@@ -104,6 +108,8 @@ fun HomeScreen(navController: NavHostController, viewModel: SharedViewModel = hi
                     Text(text = bannerList[item].name)
                 }
             }
+
+
         }
     }
 }
