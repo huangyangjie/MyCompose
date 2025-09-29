@@ -35,6 +35,7 @@ import androidx.navigation.NavHostController
 import com.example.mycompose.component.TopView
 import com.example.mycompose.component.MyOwnColumnView
 import com.example.mycompose.component.StaggeredGrid
+import com.example.mycompose.component.StaggeredGridBodyContent
 import com.example.mycompose.navigation.Routes
 import com.example.mycompose.viewmodels.SharedViewModel
 import kotlinx.coroutines.launch
@@ -64,50 +65,50 @@ fun HomeScreen(navController: NavHostController, viewModel: SharedViewModel = hi
             Column(
                 modifier = Modifier
                     .background(MaterialTheme.colorScheme.background)
-                    .fillMaxWidth(0.5f), verticalArrangement = Arrangement.Center, horizontalAlignment = Alignment.CenterHorizontally
+                    .fillMaxWidth(1f), verticalArrangement = Arrangement.Center, horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Text("首页${viewModel.count}", style = MaterialTheme.typography.headlineMedium)
-                Spacer(modifier = Modifier.height(16.dp))
-                Button(
-                    onClick = {
-                        navController.navigate("${Routes.Detail.path}/John/25/2012-12-12")
-                    },
-                ) {
-                    Text("查看详情", color = MaterialTheme.colorScheme.onTertiary)
-                }
-                Button(
-                    onClick = {},
-                ) {
-                    Text("弹出snackbar")
-                }
-                Button(
-                    onClick = {
-                        scope.launch {
-                            viewModel.userModule.add()
-                        }
-                    }) {
-                    Text("userModule $num")
-                }
-
-                Surface(
-                    color = Color.White,
-                    shadowElevation = 8.dp,
-                ) {
-                    Text("Hello Surface")
-                }
-                Button(onClick = { viewModel.getBanner() }) {
-                    Text("获取banner")
-                }
+//                Text("首页${viewModel.count}", style = MaterialTheme.typography.headlineMedium)
+//                Spacer(modifier = Modifier.height(16.dp))
+//                Button(
+//                    onClick = {
+//                        navController.navigate("${Routes.Detail.path}/John/25/2012-12-12")
+//                    },
+//                ) {
+//                    Text("查看详情", color = MaterialTheme.colorScheme.onTertiary)
+//                }
+//                Button(
+//                    onClick = {},
+//                ) {
+//                    Text("弹出snackbar")
+//                }
+//                Button(
+//                    onClick = {
+//                        scope.launch {
+//                            viewModel.userModule.add()
+//                        }
+//                    }) {
+//                    Text("userModule $num")
+//                }
+//
+//                Surface(
+//                    color = Color.White,
+//                    shadowElevation = 8.dp,
+//                ) {
+//                    Text("Hello Surface")
+//                }
+//                Button(onClick = { viewModel.getBanner() }) {
+//                    Text("获取banner")
+//                }
 //                MyOwnColumnView(modifier = Modifier.padding(20.dp))
-                StaggeredGrid()
+                StaggeredGridBodyContent()
             }
-            LazyColumn(modifier = Modifier.fillMaxWidth(0.5F)) {
-                items(bannerList.size, key = { index ->
-                    bannerList[index].id
-                }) { item ->
-                    Text(text = bannerList[item].name)
-                }
-            }
+//            LazyColumn(modifier = Modifier.fillMaxWidth(0.5F)) {
+//                items(bannerList.size, key = { index ->
+//                    bannerList[index].id
+//                }) { item ->
+//                    Text(text = bannerList[item].name)
+//                }
+//            }
 
 
         }
