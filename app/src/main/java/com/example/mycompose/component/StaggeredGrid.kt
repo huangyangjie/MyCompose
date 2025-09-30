@@ -66,7 +66,7 @@ fun StaggeredGrid(
             placeables.forEachIndexed { index, placeable ->
                 var row = index % rows
                 placeable.placeRelative(x = rowX[row], y = rowY[row])
-                rowX += placeable.width
+                rowX[row] += placeable.width
             }
         }
     }
