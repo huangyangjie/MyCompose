@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -32,6 +33,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavHostController
+import com.example.mycompose.component.MyConstraintLayout
 import com.example.mycompose.component.TopView
 import com.example.mycompose.component.MyOwnColumnView
 import com.example.mycompose.component.StaggeredGrid
@@ -64,7 +66,8 @@ fun HomeScreen(navController: NavHostController, viewModel: SharedViewModel = hi
         Row(modifier = Modifier.padding(padding)) {
             Column(
                 modifier = Modifier
-                    .background(MaterialTheme.colorScheme.background)
+                    .fillMaxHeight()
+                    .background(Color.LightGray)
                     .fillMaxWidth(1f), verticalArrangement = Arrangement.Center, horizontalAlignment = Alignment.CenterHorizontally
             ) {
 //                Text("首页${viewModel.count}", style = MaterialTheme.typography.headlineMedium)
@@ -100,7 +103,8 @@ fun HomeScreen(navController: NavHostController, viewModel: SharedViewModel = hi
 //                    Text("获取banner")
 //                }
 //                MyOwnColumnView(modifier = Modifier.padding(20.dp))
-                StaggeredGridBodyContent()
+//                StaggeredGridBodyContent()
+                MyConstraintLayout()
             }
 //            LazyColumn(modifier = Modifier.fillMaxWidth(0.5F)) {
 //                items(bannerList.size, key = { index ->

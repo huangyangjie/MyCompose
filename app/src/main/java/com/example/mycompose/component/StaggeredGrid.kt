@@ -21,6 +21,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.Layout
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.example.mycompose.utils.LogTools
 import kotlin.math.max
 
 val list = listOf(
@@ -61,6 +62,9 @@ fun StaggeredGrid(
         for (i in 1 until rows) {
             rowY[i] = rowY[i - 1] + rowHeights[i - 1]
         }
+        LogTools.e("rowY1:${rowY[0]}")
+        LogTools.e("rowY2:${rowY[1]}")
+        LogTools.e("rowY3:${rowY[2]}")
         layout(width, height) {
             var rowX = IntArray(rows) { 0 }
             placeables.forEachIndexed { index, placeable ->
