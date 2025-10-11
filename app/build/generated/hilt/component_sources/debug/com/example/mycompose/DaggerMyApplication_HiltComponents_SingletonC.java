@@ -6,7 +6,11 @@ import android.view.View;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.SavedStateHandle;
 import androidx.lifecycle.ViewModel;
-import com.example.mycompose.repository.UserModule;
+import com.example.mycompose.repository.http.ApiService;
+import com.example.mycompose.repository.http.RetrofitClient;
+import com.example.mycompose.repository.module.NetworkModule_ProvideApiServiceFactory;
+import com.example.mycompose.repository.module.NetworkModule_ProvideRetrofitClientFactory;
+import com.example.mycompose.repository.module.UserModule;
 import com.example.mycompose.viewmodels.SharedViewModel;
 import com.example.mycompose.viewmodels.SharedViewModel_HiltModules;
 import com.example.mycompose.viewmodels.SharedViewModel_HiltModules_BindsModule_Binds_LazyMapKey;
@@ -448,7 +452,7 @@ public final class DaggerMyApplication_HiltComponents_SingletonC {
       public T get() {
         switch (id) {
           case 0: // com.example.mycompose.viewmodels.SharedViewModel
-          return (T) new SharedViewModel(singletonCImpl.userModuleProvider.get());
+          return (T) new SharedViewModel(singletonCImpl.userModuleProvider.get(), singletonCImpl.provideApiServiceProvider.get());
 
           default: throw new AssertionError(id);
         }
@@ -530,6 +534,10 @@ public final class DaggerMyApplication_HiltComponents_SingletonC {
 
     Provider<UserModule> userModuleProvider;
 
+    Provider<RetrofitClient> provideRetrofitClientProvider;
+
+    Provider<ApiService> provideApiServiceProvider;
+
     SingletonCImpl() {
 
       initialize();
@@ -539,6 +547,8 @@ public final class DaggerMyApplication_HiltComponents_SingletonC {
     @SuppressWarnings("unchecked")
     private void initialize() {
       this.userModuleProvider = DoubleCheck.provider(new SwitchingProvider<UserModule>(singletonCImpl, 0));
+      this.provideRetrofitClientProvider = DoubleCheck.provider(new SwitchingProvider<RetrofitClient>(singletonCImpl, 2));
+      this.provideApiServiceProvider = DoubleCheck.provider(new SwitchingProvider<ApiService>(singletonCImpl, 1));
     }
 
     @Override
@@ -574,8 +584,14 @@ public final class DaggerMyApplication_HiltComponents_SingletonC {
       @SuppressWarnings("unchecked")
       public T get() {
         switch (id) {
-          case 0: // com.example.mycompose.repository.UserModule
+          case 0: // com.example.mycompose.repository.module.UserModule
           return (T) new UserModule();
+
+          case 1: // com.example.mycompose.repository.http.ApiService
+          return (T) NetworkModule_ProvideApiServiceFactory.provideApiService(singletonCImpl.provideRetrofitClientProvider.get());
+
+          case 2: // com.example.mycompose.repository.http.RetrofitClient
+          return (T) NetworkModule_ProvideRetrofitClientFactory.provideRetrofitClient();
 
           default: throw new AssertionError(id);
         }

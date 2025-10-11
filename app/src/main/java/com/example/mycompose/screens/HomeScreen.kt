@@ -38,6 +38,8 @@ import com.example.mycompose.component.TopView
 import com.example.mycompose.component.MyOwnColumnView
 import com.example.mycompose.component.StaggeredGrid
 import com.example.mycompose.component.StaggeredGridBodyContent
+import com.example.mycompose.component.TwoTexts
+import com.example.mycompose.component.WaterFall
 import com.example.mycompose.navigation.Routes
 import com.example.mycompose.viewmodels.SharedViewModel
 import kotlinx.coroutines.launch
@@ -63,13 +65,13 @@ fun HomeScreen(navController: NavHostController, viewModel: SharedViewModel = hi
             Icon(imageVector = Icons.Default.Add, contentDescription = null)
         }
     }) { padding ->
-        Row(modifier = Modifier.padding(padding)) {
-            Column(
-                modifier = Modifier
-                    .fillMaxHeight()
-                    .background(Color.LightGray)
-                    .fillMaxWidth(1f), verticalArrangement = Arrangement.Center, horizontalAlignment = Alignment.CenterHorizontally
-            ) {
+        Row(modifier = Modifier.padding(padding).fillMaxHeight()) {
+//            Column(
+//                modifier = Modifier
+//                    .fillMaxHeight()
+//                    .background(Color.White)
+//                    .fillMaxWidth(1f), verticalArrangement = Arrangement.Center, horizontalAlignment = Alignment.CenterHorizontally
+//            ) {
 //                Text("首页${viewModel.count}", style = MaterialTheme.typography.headlineMedium)
 //                Spacer(modifier = Modifier.height(16.dp))
 //                Button(
@@ -104,8 +106,9 @@ fun HomeScreen(navController: NavHostController, viewModel: SharedViewModel = hi
 //                }
 //                MyOwnColumnView(modifier = Modifier.padding(20.dp))
 //                StaggeredGridBodyContent()
-                MyConstraintLayout()
-            }
+//                MyConstraintLayout()
+//                TwoTexts()
+//            }
 //            LazyColumn(modifier = Modifier.fillMaxWidth(0.5F)) {
 //                items(bannerList.size, key = { index ->
 //                    bannerList[index].id
@@ -113,7 +116,7 @@ fun HomeScreen(navController: NavHostController, viewModel: SharedViewModel = hi
 //                    Text(text = bannerList[item].name)
 //                }
 //            }
-
+            WaterFall()
 
         }
     }

@@ -20,6 +20,7 @@ import dagger.hilt.processor.internal.definecomponent.codegen._dagger_hilt_compo
 import hilt_aggregated_deps._androidx_hilt_work_HiltWrapper_WorkerFactoryModule;
 import hilt_aggregated_deps._com_example_mycompose_MainActivity_GeneratedInjector;
 import hilt_aggregated_deps._com_example_mycompose_MyApplication_GeneratedInjector;
+import hilt_aggregated_deps._com_example_mycompose_repository_module_NetworkModule;
 import hilt_aggregated_deps._com_example_mycompose_viewmodels_SharedViewModel_HiltModules_BindsModule;
 import hilt_aggregated_deps._com_example_mycompose_viewmodels_SharedViewModel_HiltModules_KeyModule;
 import hilt_aggregated_deps._dagger_hilt_android_flags_FragmentGetContextFix_FragmentGetContextFixEntryPoint;
@@ -65,6 +66,7 @@ import hilt_aggregated_deps._dagger_hilt_android_internal_modules_HiltWrapper_Ac
         _androidx_hilt_work_HiltWrapper_WorkerFactoryModule.class,
         _com_example_mycompose_MainActivity_GeneratedInjector.class,
         _com_example_mycompose_MyApplication_GeneratedInjector.class,
+        _com_example_mycompose_repository_module_NetworkModule.class,
         _com_example_mycompose_viewmodels_SharedViewModel_HiltModules_BindsModule.class,
         _com_example_mycompose_viewmodels_SharedViewModel_HiltModules_KeyModule.class,
         _dagger_hilt_android_flags_FragmentGetContextFix_FragmentGetContextFixEntryPoint.class,

@@ -86,4 +86,5 @@ dependencies {
     implementation(libs.room.ktx)
     ksp(libs.room.compiler)
     implementation(libs.androidx.constraintlayout.compose)
+    implementation(libs.coil.compose)
 }

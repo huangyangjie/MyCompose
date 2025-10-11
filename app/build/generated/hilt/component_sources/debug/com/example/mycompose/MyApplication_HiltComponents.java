@@ -1,6 +1,7 @@
 package com.example.mycompose;
 
 import androidx.hilt.work.HiltWrapper_WorkerFactoryModule;
+import com.example.mycompose.repository.module.NetworkModule;
 import com.example.mycompose.viewmodels.SharedViewModel_HiltModules;
 import dagger.Binds;
 import dagger.Component;
@@ -130,7 +131,8 @@ public final class MyApplication_HiltComponents {
           HiltWrapper_FragmentGetContextFix_FragmentGetContextFixModule.class,
           HiltWrapper_WorkerFactoryModule.class,
           ActivityRetainedCBuilderModule.class,
-          ServiceCBuilderModule.class
+          ServiceCBuilderModule.class,
+          NetworkModule.class
       }
   )
   @Singleton

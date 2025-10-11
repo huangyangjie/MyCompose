@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.mycompose.app-mergeDebugResources-64:/values-v23/values-v23.xml",
+            "outputFile": "com.example.mycompose.app-mergeDebugResources-66:/values-v23/values-v23.xml",
             "map": [
                 {
-                    "source": "/Users/huangyangjie/.gradle/caches/8.13/transforms/f60218f7e80e408ff498a2aa214a0f7f/transformed/material-1.13.0/res/values-v23/values-v23.xml",
+                    "source": "/Users/huangyangjie/.gradle/caches/8.13/transforms/6651ea201d75b8deb9817775d9b9fba5/transformed/material-1.13.0/res/values-v23/values-v23.xml",
                     "from": {
                         "startLines": "2,5,9,13,16,19,22,25,28,32",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4",
@@ -23,7 +23,17 @@
                     }
                 },
                 {
-                    "source": "/Users/huangyangjie/.gradle/caches/8.13/transforms/945c41a64c652a9e125d68de741c3b92/transformed/cardview-1.0.0/res/values-v23/values-v23.xml",
+                    "source": "/Users/huangyangjie/.gradle/caches/8.13/transforms/2ff3bb04c63ceaaffbbcf55f2de4487b/transformed/work-runtime-2.3.4/res/values-v23/values-v23.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,121",
+                        "endColumns": "65,62",
+                        "endOffsets": "116,179"
+                    }
+                },
+                {
+                    "source": "/Users/huangyangjie/.gradle/caches/8.13/transforms/f460182ee27322f2628aae85ba41d57f/transformed/cardview-1.0.0/res/values-v23/values-v23.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -42,17 +52,7 @@
                     }
                 },
                 {
-                    "source": "/Users/huangyangjie/.gradle/caches/8.13/transforms/9602faae6ba9b3bb02ca08840d0909df/transformed/work-runtime-2.3.4/res/values-v23/values-v23.xml",
-                    "from": {
-                        "startLines": "2,3",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,121",
-                        "endColumns": "65,62",
-                        "endOffsets": "116,179"
-                    }
-                },
-                {
-                    "source": "/Users/huangyangjie/.gradle/caches/8.13/transforms/770c6f20265ae9d5b45df8b3e1d6fd22/transformed/appcompat-1.7.1/res/values-v23/values-v23.xml",
+                    "source": "/Users/huangyangjie/.gradle/caches/8.13/transforms/c19cd1092c85da462d3aa9d135c3b557/transformed/appcompat-1.7.1/res/values-v23/values-v23.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,20,34,35,36,39,43,44,45,46",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",
